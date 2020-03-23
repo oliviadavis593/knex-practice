@@ -11,4 +11,12 @@ const knexInstance = knex({
     connection: process.env.DB_URL
 })
 
+//Converting knex query into raw SQL string to check what it equivalent to
+//Purely to look at what's happening behinf the seens
+//We use .toQuery() to get SQL query & console.log it 
+const q1 = knexInstance('amazong_products').select('*').toQuery()
+const q2 = knexInstance.from('amazong_products').select('*').toQuery()
+
+console.log('q1:', q1)
+console.log('q2:', q2)
 console.log('knex and driver installed correctly');
