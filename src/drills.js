@@ -1,5 +1,6 @@
 require('dotenv').config()
 const knex = require('knex')
+const ShoppingListService = require('../src/shopping-list-service')
 
 const knexInstance = knex({
     client: 'pg',
@@ -81,3 +82,5 @@ function costPerCategory() {
 }
 
 costPerCategory()
+
+console.log(ShoppingListService.getShoppingList())
